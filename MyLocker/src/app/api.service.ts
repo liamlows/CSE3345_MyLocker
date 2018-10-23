@@ -13,9 +13,9 @@ export class ApiService {
   }
 
   login(email: string, password: string): Observable<LoginResultModel>{
-    return this.http.post<LoginResultModel>('https://reqres.in/api/login', {
-      email: email,
-      password: password
-    });
+    console.log(email);
+    console.log(password);
+    //console.log(this.http.post<LoginResultModel>('http://18.222.132.148:4444/api/user', email));
+    return this.http.post<LoginResultModel>('http://18.222.132.148:4444/api/user', { email: email, password: password });
   }
 }

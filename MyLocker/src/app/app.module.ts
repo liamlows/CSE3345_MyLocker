@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NeedAuthGuard } from './auth-guard';
 import { LoginModule } from './login/login.module';
-import { HomeModule } from './home/home.module'
+import { HomeModule } from './home/home.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { ItempageModule } from './itempage/itempage.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
+//import { ItempageComponent } from './itempage/itempage.component';
+// import { DashboardComponent } from './dashboard/dashboard.component';
 //import { HomeComponent }      from './home/home.component';
 //import { LoginComponent }    from './login/login.component';
 
@@ -15,7 +18,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    //ItempageComponent,
+    //DashboardComponent,
     //HomeComponent,
     //LoginComponent
   ],
@@ -23,6 +27,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     LoginModule,
     HomeModule,
+    DashboardModule,
+    ItempageModule
     AppRoutingModule,
     HttpClientModule
   ],

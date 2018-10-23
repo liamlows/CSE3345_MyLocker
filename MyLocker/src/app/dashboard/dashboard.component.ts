@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { CustomerService } from '../customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  title="My Account";
+  name=this.customer.getName();
+
+  constructor(
+  private api: ApiService,
+  private customer: CustomerService,
+  private router: Router
+  ) { }
+
+  tryLogout() {
+    //alert("logged out");
+    this.customer.removeToken();
+    this.router.navigateByUrl('/home');
+  }
 
   ngOnInit() {
   }
