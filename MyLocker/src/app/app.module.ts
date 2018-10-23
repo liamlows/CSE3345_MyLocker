@@ -28,7 +28,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     LoginModule,
     HomeModule,
     DashboardModule,
-    ItempageModule
+    ItempageModule,
     AppRoutingModule,
     HttpClientModule
   ],
