@@ -1,38 +1,45 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { NeedAuthGuard } from './auth-guard';
+import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ItempageModule } from './itempage/itempage.module';
+import { RegisterModule } from './register/register.module';
+
+import { NeedAuthGuard } from './auth-guard';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing/app-routing.module';
-//import { ItempageComponent } from './itempage/itempage.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
-//import { HomeComponent }      from './home/home.component';
-//import { LoginComponent }    from './login/login.component';
+import { CollapseComponent } from './collapse/collapse.component';
+// import { SideNavComponent } from './ui/side-nav/side-nav.component';
+
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    //ItempageComponent,
-    //DashboardComponent,
-    //HomeComponent,
-    //LoginComponent
-  ],
   imports: [
     BrowserModule,
     LoginModule,
+    RegisterModule,
     HomeModule,
     DashboardModule,
     ItempageModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
-  providers: [ NeedAuthGuard ],
-  bootstrap: [ AppComponent ]
+  declarations: [
+    AppComponent,
+    CollapseComponent,
+    // SideNavComponent,
+  ],
+  providers: [
+    NeedAuthGuard
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

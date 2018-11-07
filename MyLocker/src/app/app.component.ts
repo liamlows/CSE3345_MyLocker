@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { slideInAnimation } from './animation';
+import { CustomerService } from './customer.service';
+import { NeedAuthGuard } from './auth-guard';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import { slideInAnimation } from './animation';
 })
 export class AppComponent {
 
-  constructor( private route: ActivatedRoute ) { }
+  constructor( private route: ActivatedRoute, private authGuard: NeedAuthGuard ) { }
 
   animationState: number;
 

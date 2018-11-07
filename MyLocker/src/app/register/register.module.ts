@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './login.component';
+import { FormsModule } from '../../../node_modules/@angular/forms';
+import { RegisterComponent } from './register.component';
 import { RouterModule } from '../../../node_modules/@angular/router';
 
 @NgModule({
@@ -10,7 +10,7 @@ import { RouterModule } from '../../../node_modules/@angular/router';
     FormsModule,
     RouterModule
   ],
-  declarations: [LoginComponent],
-  exports:[LoginComponent]
+  declarations: [RegisterComponent],
+  exports: [RegisterComponent]
 })
-export class LoginModule { }
+export class RegisterModule { }

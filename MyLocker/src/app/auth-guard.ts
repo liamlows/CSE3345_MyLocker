@@ -9,11 +9,15 @@ export class NeedAuthGuard implements CanActivate {
   constructor(private customerService: CustomerService, private router: Router) {
   }
 
+  authIsLogged: boolean;
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
     const redirectUrl = route['_routerState']['url'];
 
     if (this.customerService.isLogged()) {
+      this.authIsLogged = true;
+      console.log(this.authIsLogged);
       return true;
     }
 
@@ -27,6 +31,7 @@ export class NeedAuthGuard implements CanActivate {
       )
     );
 
+    this.authIsLogged = false;
     return false;
   }
 }

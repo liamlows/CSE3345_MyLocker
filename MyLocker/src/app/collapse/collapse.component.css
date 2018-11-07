@@ -1,0 +1,59 @@
+#page-header{
+  padding-top: .5rem;
+  color: white;
+}
+
+#nav-header{
+  padding-top: 1rem;
+}
+
+#nav-button{
+  position: absolute;
+}
+
+#collapseNav{
+  position: fixed;
+  height: 100vh;
+  width: 15vw;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+
+#dismiss-nav{
+  padding-bottom: 1rem;
+  border-bottom: solid #ddd;
+}
+
+#nav-close{
+  padding-top: 1rem;
+  font-size: 35px;
+  cursor: pointer;
+  color: #FFF;
+  background:transparent;
+}
+
+#navItems{
+}
+
+#navFooter{
+  position: fixed;
+  bottom: 10px;
+  background-color: #AAA;
+  width: 13vw;
+}
+
+.nav-item{
+  padding: 1rem 0;
+  font-size: 20px;
+}
+
+.overlay {
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 998;
+  opacity: 1;
+}

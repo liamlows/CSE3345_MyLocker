@@ -1,25 +1,38 @@
-<br>
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <br>
-  <div class="d-flex">
-    <div class="mx-auto card mt-5" id="login-card">
-      <div class="card-body">
-        <form>
-          <h5>Login</h5>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" placeholder="Email Address" [(ngModel)]="email" name="email">
+<div class="d-flex aqua-gradient color-block" id="login-body">
+  <div class="mx-auto my-auto card mt-5" id="login-card">
+    <div class="card-body text-center">
+      <h4 class="card-title mt-3 text-center">Login</h4>
+      <form>
+        <!-- <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" placeholder="Email Address" [(ngModel)]="email" name="email">
+        </div> -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
           </div>
-          <div class="form-group">
-            <label for="email">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password" name="password">
+          <input class="form-control" placeholder="Email address" type="email" [(ngModel)]="email" name="email" id="email">
+        </div>
+        <!-- <div class="form-group">
+          <label for="email">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password" name="password">
+        </div> -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div>
-          <button type="submit" class="btn btn-primary" (click)="tryLogin()">Login</button>
-        </form>
-      </div>
+          <input class="form-control" placeholder="Create password" type="password" [(ngModel)]="password" id="password" name="password">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" (click)="tryLogin()">Login</button>
+        </div>
+
+      </form>
+      <p class="divider-text">
+        <span class="bg-white">OR</span>
+      </p>
+      <p class="d-inline">Dont Have an account?</p>
+      <a routerLink="/register">  Register</a>
     </div>
   </div>
 </div>
