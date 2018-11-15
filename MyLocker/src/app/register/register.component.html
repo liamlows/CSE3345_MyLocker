@@ -1,7 +1,7 @@
 <div class="d-flex" id="register-body">
 	<div class="card mx-auto my-auto" id="register-card">
 		<div class="card-body text-center">
-			<h4 class="card-title mt-3 text-center">Create Account</h4>
+			<h4 class="card-title mb-3 text-center">Create Account</h4>
 
 			<form>
 				<!-- firstname -->
@@ -34,7 +34,7 @@
 				</div>
 				<!-- submit -->
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-block" (click)="tryRegister()">Create Account</button>
+					<button type="submit" class="btn btn-primary btn-block" (click)="tryRegister()" [disabled]="!this.first_name || !this.last_name || !this.email || !this.password">Create Account</button>
 				</div>
 			</form>
 

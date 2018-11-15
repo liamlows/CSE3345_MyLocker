@@ -1,0 +1,28 @@
+#item-name{
+  max-width: 13.5rem;
+  max-height: 2.5rem;
+  overflow: scroll;
+}
+
+#item-price{
+}
+
+#favs{
+}
+
+#del-fav{
+  position: absolute;
+  right:.5rem;
+  top:.5rem;
+}
+
+#del-fav-x{
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#del-fav-x:hover{
+  font-size: 2rem;
+  color: #dc3545!important;
+  cursor: pointer;
+}

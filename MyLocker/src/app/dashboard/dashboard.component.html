@@ -1,9 +1,103 @@
-<br>
-<h1 style="text-align:center">
-  Welcome {{ name }}!
-</h1>
-<div class="d-flex">
-  <div class="mx-auto">
-    <button type="submit" class="btn btn-primary" (click)="tryLogout()">Logout</button>
+<div class="" id="dashboard-body">
+  <h1 class="text-info text-center" id="dash-head">
+    My Account
+    <br>
+      <small>Change or edit your information below!</small>
+  </h1>
+
+
+  <div class="container-fluid">
+    <div class="row" style="height:80vh;">
+      <!-- <form> -->
+        <div class="col-md-6 mt-2">
+          <div class="row justify-content-center align-items-center h-50 border-right">
+
+            <div class="card border-0" id="email-card">
+              <h3 class="text-info text-center">Email</h3>
+              <h5 class="text-info text-center">Please enter your new valid email to update.</h5>
+
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                </div>
+                <input class="form-control" placeholder="{{this.curEmail}}" type="email" [(ngModel)]="email" name="email">
+              </div>
+
+              <!-- <div class="justify-content-center"> -->
+                <button type="submit" class="btn btn-info" (click)="updateEmail()" [disabled]="!this.email">Update</button>
+              <!-- </div> -->
+            </div>
+
+
+
+          </div>
+          <div class="row justify-content-center align-items-center h-50 border-right">
+
+            <div class="card border-0" id="email-card">
+              <h3 class="text-info text-center">Name</h3>
+              <h5 class="text-info text-center">Please enter a first name and last name to update.</h5>
+
+              <!-- <h5 class="text-info text-center">Current: {{this.name}}</h5> -->
+
+              <!-- <h5 class="text-info">First Name:</h5> -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <input class="form-control" placeholder="{{this.curFirstName}}" type="text" [(ngModel)]="firstName" name="firstName">
+              </div>
+
+              <!-- <h5 class="text-info">Last Name:</h5> -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <input class="form-control" placeholder="{{this.curLastName}}" type="text" [(ngModel)]="lastName" name="lastName">
+              </div>
+
+              <!-- <div class="justify-content-center"> -->
+                <button type="submit" class="btn btn-info" (click)="updateName()" [disabled]="!this.firstName || !this.lastName">Update</button>
+              <!-- </div> -->
+            </div>
+
+
+          </div>
+        </div>
+        <div class="col-md-6 mt-2">
+          <div class="row justify-content-center align-items-center h-50 border-left">
+
+            <div class="card border-0" id="email-card">
+              <h3 class="text-info text-center">Password</h3>
+              <h5 class="text-info text-center">Please enter a new password.</h5>
+
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input class="form-control" placeholder="Password" type="password" [(ngModel)]="password" name="password">
+              </div>
+
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input class="form-control" placeholder="Confirm Password" type="password" [(ngModel)]="passwordConfrim" name="passwordConfrim">
+              </div>
+
+              <!-- <div class="justify-content-center"> -->
+                <button type="submit" class="btn btn-info" (click)="updatePassword()" [disabled]="(this.password !== this.passwordConfrim) || !this.password">Update</button>
+              <!-- </div> -->
+            </div>
+
+          </div>
+          <div class="row justify-content-center align-items-center h-50 border-left">
+            <div class="card border-0" id="email-card">
+              <h3 class="text-info text-center">Delete Acccount</h3>
+              <button type="submit" class="btn btn-danger" (click)="deleteAccount()">Delete Account</button>
+            </div>
+          </div>
+        </div>
+      <!-- </form> -->
+    </div>
   </div>
 </div>

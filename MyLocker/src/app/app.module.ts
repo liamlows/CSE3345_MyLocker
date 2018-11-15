@@ -14,13 +14,20 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CollapseComponent } from './collapse/collapse.component';
+import { BrowserAnimationsModule } from '../../node_modules/@angular/platform-browser/animations';
+import { FavoritesComponent } from './models/favorites/favorites.component';
 // import { SideNavComponent } from './ui/side-nav/side-nav.component';
+
+//// TODO:
+//global error handler
+
 
 
 
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     LoginModule,
     RegisterModule,
     HomeModule,
@@ -33,6 +40,7 @@ import { CollapseComponent } from './collapse/collapse.component';
   declarations: [
     AppComponent,
     CollapseComponent,
+    FavoritesComponent,
     // SideNavComponent,
   ],
   providers: [

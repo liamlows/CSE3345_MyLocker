@@ -15,23 +15,23 @@ export class NeedAuthGuard implements CanActivate {
 
     const redirectUrl = route['_routerState']['url'];
 
-    if (this.customerService.isLogged()) {
+    if(this.customerService.isLogged()) {
       this.authIsLogged = true;
       console.log(this.authIsLogged);
       return true;
     }
-
-    this.router.navigateByUrl(
-      this.router.createUrlTree(
-        ['/login'], {
-          queryParams: {
-            redirectUrl
+    else{
+      this.authIsLogged = false;
+      this.router.navigateByUrl(
+        this.router.createUrlTree(
+          ['/login'], {
+            queryParams: {
+              redirectUrl
+            }
           }
-        }
-      )
-    );
-
-    this.authIsLogged = false;
-    return false;
+        )
+      );
+      return false;
+    }
   }
 }

@@ -1,0 +1,27 @@
+<div class="card-group d-flex" id="favs">
+  <div class="mx-auto" *ngFor="let eachItem of product">
+    <div class="card rounded mt-2">
+      <span id="del-fav">
+        <i class="fa fa-times text-info" id="del-fav-x" aria-hidden="true"></i>
+      </span>
+      <div class="card-body rounded">
+
+
+        <a href="{{eachItem.url}}">
+          <img class="card-img-top" src="{{ eachItem.image }}" alt="Card image cap"/>
+        </a>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-9 p-0 pl-2" id="item-name">
+            <h6>{{eachItem.name}}</h6>
+          </div>
+
+          <div class="col-3 p-0" id="item-price">
+            <h6 class="text-muted pt-2">{{eachItem.price | currency}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

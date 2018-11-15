@@ -1,23 +1,82 @@
 #page-header{
   padding-top: .5rem;
-  color: white;
 }
 
 #nav-header{
-  padding-top: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border-bottom: solid #ddd;
+}
+
+#fav-header{
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border-bottom: solid #ddd;
 }
 
 #nav-button{
   position: absolute;
+  z-index: 999;
+}
+
+#fav-button{
+  display: block;
+  z-index: 999;
+  right: 0;
+}
+
+#logout-but{
+  display: block;
+}
+
+#border{
+  font-size: 25px;
+}
+
+#logout-area{
+  position: absolute;
+  right: 1rem;
+}
+
+#login-account{
+right:9vw;
+position: absolute;
+}
+
+#login-login{
+  right:1rem;
+  position: absolute;
+}
+
+
+#favorite{
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#favorite:hover{
+  font-size: 2rem;
+  color: #dc3545!important;
+  cursor: pointer;
 }
 
 #collapseNav{
   position: fixed;
   height: 100vh;
   width: 15vw;
-  z-index: 999;
+  z-index: 995;
   top: 0;
   left: 0;
+}
+
+#collapseFav{
+  position: fixed;
+  height: 100vh;
+  width: 16vw;
+  z-index: 995;
+  top: 0;
+  right: 0;
+  overflow: scroll;
 }
 
 #dismiss-nav{
@@ -29,18 +88,19 @@
   padding-top: 1rem;
   font-size: 35px;
   cursor: pointer;
-  color: #FFF;
+  color: #17a2b8;
   background:transparent;
 }
 
-#navItems{
+#favs-list{
+  overflow: scroll;
 }
 
 #navFooter{
   position: fixed;
   bottom: 10px;
-  background-color: #AAA;
-  width: 13vw;
+  border-top: solid #ddd;
+  width: 13.5vw;
 }
 
 .nav-item{
@@ -54,6 +114,6 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
-  z-index: 998;
+  z-index: 990;
   opacity: 1;
 }

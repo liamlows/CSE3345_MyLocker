@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
 import { ApiService } from '../api.service';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    // private customer: CustomerService,
+    private customer: CustomerService,
     private router: Router
   ) { }
 
@@ -26,27 +27,21 @@ export class RegisterComponent implements OnInit {
   }
 
   tryRegister() {
-    this.api.register(this.first_name, this.last_name, this.email, this.password);
-    // .subscribe(
-    //   r => {
-    //     this.customer.removeToken();
-    //     if (r.loginAuth == '1') {
-    //       this.customer.setToken(r.loginAuth);
-    //       this.customer.setName(this.email);
-    //       this.router.navigateByUrl('/dashboard');
-    //     }
-    //     else if(r.loginAuth == '0'){
-    //       alert("Invalid User or Password.");
-    //       //alert(r.error.error);
-    //     }
-    //     else{
-    //       alert("Error: Please enter a valid Email and Password")
-    //     }
-    //   }//,          WHY USE ANOTHER R HERE????????????????????????????
-    //   // r => {
-    //   //   alert(r.error.error);
-    //   // }
-    // );
+    this.api.register(this.first_name, this.last_name, this.email, this.password).subscribe(
+      r => {
+        if(r.errorCode == '-1'){
+          alert("Invalid registration parameters.");
+        }
+        else if(r.errorCode == '1'){
+          //id: string, fname: string, lname: string, email: string
+          this.customer.setUser(r.id, r.first_name, r.last_name, r.email);
+          this.router.navigateByUrl('/dashboard');
+        }
+        else{
+          alert("Unexpected registration error...")
+        }
+      }
+    );
   }
 
 }

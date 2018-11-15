@@ -1,3 +1,26 @@
-<p>
-  itempage works!
-</p>
+<div class="row card-group mx-3" >
+  <div class="col-4"  *ngFor="let eachItem of product">
+    <div class="card">
+      <button class="button button-like col-1">
+        <i class="fa fa-heart" ng-click="eachItem.favorite_array.push(eachItem.id)" ng-init="eachItem.favorite_array=[]"></i>
+      </button>
+      <img class="card-img-top" src='{{ eachItem.image }}' alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{eachItem.name}}</h5>
+        <p class="card-text">Color: {{eachItem.color}}</p>
+        <p class="card-text">Fabric: {{eachItem.materials}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">${{eachItem.price}}</small>
+        <a href="{{eachItem.url}}">
+          <button type="button " style="float: right;" class="btn btn-success">Buy Now</button>
+        </a>
+        <div>
+          <i onclick="setLike(this)" ></i>
+          <button class="fa fa-thumbs-up" ng-click="eachItem.like_count = eachItem.like_count + 1" ng-init="eachItem.like_count=0" ></button>
+          <button class="fa fa-thumbs-down" ng-click="eachItem.like_count = eachItem.like_count + 1" ng-init="eachItem.like_count=0" ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

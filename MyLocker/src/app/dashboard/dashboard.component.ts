@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { CustomerService } from '../customer.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NeedAuthGuard } from '../auth-guard';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,21 +12,57 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   title="My Account";
-  name=this.customer.getName();
+  curFirstName=`${this.customer.getFirstName()}`;
+  curLastName=`${this.customer.getLastName()}`;
+  curEmail=`${this.customer.getEmail()}`;
+
+  //curFirstName:string = "Bobby";
+  //curLastName:string = "Blue";
+  //curEmail:string = "bob.blue@bobby.com";
+
+  id:string;
+  email:string;
+  firstName:string;
+  lastName:string;
+  password:string;
+  passwordConfrim:string;
 
   constructor(
   private api: ApiService,
   private customer: CustomerService,
-  private router: Router
+  private router: Router,
+  private authGuard: NeedAuthGuard,
+  private activeRoute: ActivatedRoute,
   ) { }
 
-  tryLogout() {
-    //alert("logged out");
-    this.customer.removeToken();
-    this.router.navigateByUrl('/home');
+  ngOnInit() {
   }
 
-  ngOnInit() {
+  updateEmail() {
+    this.api.updateEmailById(this.customer.getId(),this.email);
+    this.email = '';
+  }
+
+  updateName() {
+    this.api.updateNameById(this.customer.getId(),this.firstName, this.lastName);
+    this.firstName = '';
+    this.lastName = '';
+  }
+
+  updatePassword() {
+    this.api.updatePasswordById(this.customer.getId(), this.password);
+    this.password = '';
+    this.passwordConfrim = '';
+  }
+
+  deleteAccount() {
+    if(window.confirm("Are you sure you want to delete your account?")){
+      this.api.deleteAccountById(this.customer.getId());
+      // .subscribe(
+      //   () => {
+      //     this.accountlist.splice(index,1);
+      //   });
+    }
   }
 
 }

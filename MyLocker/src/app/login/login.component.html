@@ -1,7 +1,7 @@
-<div class="d-flex aqua-gradient color-block" id="login-body">
+<div class="d-flex" id="login-body">
   <div class="mx-auto my-auto card mt-5" id="login-card">
     <div class="card-body text-center">
-      <h4 class="card-title mt-3 text-center">Login</h4>
+      <h4 class="card-title mb-3 text-center">Login</h4>
       <form>
         <!-- <div class="form-group">
           <label for="email">Email</label>
@@ -24,7 +24,7 @@
           <input class="form-control" placeholder="Create password" type="password" [(ngModel)]="password" id="password" name="password">
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block" (click)="tryLogin()">Login</button>
+          <button type="submit" class="btn btn-primary btn-block" (click)="tryLogin()" [disabled]="!this.email || !this.password">Login</button>
         </div>
 
       </form>

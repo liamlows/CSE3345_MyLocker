@@ -1,6 +1,10 @@
 import {Injectable} from '@angular/core';
 
 const TOKEN = 'TOKEN';
+
+const ID = 'UID';
+const FIRST_NAME = 'FIRST_NAME';
+const LAST_NAME = 'LAST_NAME';
 const EMAIL = 'EMAIL';
 
 @Injectable({
@@ -8,21 +12,49 @@ const EMAIL = 'EMAIL';
 })
 export class CustomerService {
 
-  setToken(token: string): void {
-    localStorage.setItem(TOKEN, token);
-  }
+  // setToken(token: string): void {
+  //   localStorage.setItem(TOKEN, token);
+  // }
 
-  setName(email: string): void {
+  setUser(id: string, fname: string, lname: string, email: string):void{
+    localStorage.setItem(TOKEN, '1');
+    localStorage.setItem(ID, id);
+    localStorage.setItem(FIRST_NAME, fname);
+    localStorage.setItem(LAST_NAME, lname);
     localStorage.setItem(EMAIL, email);
   }
 
-  getName(): string {
+  // setName(email: string): void {
+  //   localStorage.setItem(EMAIL, email);
+  // }
+
+  removeUser(): void {
+    localStorage.removeItem(TOKEN);
+    localStorage.removeItem(ID);
+    localStorage.removeItem(FIRST_NAME);
+    localStorage.removeItem(LAST_NAME);
+    localStorage.removeItem(EMAIL);
+  }
+
+  getFirstName(): string {
+    return localStorage.getItem(LAST_NAME);
+  }
+
+  getLastName(): string {
+    return localStorage.getItem(FIRST_NAME);
+  }
+
+  getEmail(): string {
     return localStorage.getItem(EMAIL);
   }
 
-  removeToken(): void {
-    localStorage.removeItem(TOKEN);
+  getId(): string {
+    return localStorage.getItem(ID);
   }
+
+  // removeToken(): void {
+  //   localStorage.removeItem(TOKEN);
+  // }
 
   isLogged() {
     return localStorage.getItem(TOKEN) == '1';

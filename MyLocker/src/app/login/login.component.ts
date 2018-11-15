@@ -16,9 +16,6 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  //email = 'peter@klaven';
-  //password = 'cityslicka';
-
   constructor(
     private api: ApiService,
     private customer: CustomerService,
@@ -28,18 +25,23 @@ export class LoginComponent implements OnInit {
   tryLogin() {
     this.api.login(this.email, this.password).subscribe(
       r => {
-        this.customer.removeToken();
+        this.customer.removeUser();
+
         if (r.loginAuth == '1') {
-          this.customer.setToken(r.loginAuth);
-          this.customer.setName(this.email);
+          //id: string, fname: string, lname: string, email: string
+          //this.customer.setUser()
+          //this.customer.setToken(r.loginAuth);
+          this.customer.setUser(r.id, r.first_name, r.last_name, r.email);
           this.router.navigateByUrl('/dashboard');
         }
+
         else if(r.loginAuth == '0'){
           alert("Invalid User or Password.");
           //alert(r.error.error);
         }
+
         else{
-          alert("Error: Please enter a valid Email and Password")
+          alert("Unexpected login error...")
         }
       }//,          WHY USE ANOTHER R HERE????????????????????????????
       // r => {
