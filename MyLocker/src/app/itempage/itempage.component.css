@@ -1,15 +1,19 @@
-.col-3{
-  text-align: center;
-}
-
 .card-title{
   text-align: center;
 }
+
 .row .card{
   margin: 10pt;
 }
+
 .card-text{
   text-transform: capitalize;
+  text-align: justify;
+  font-size:small;
+}
+
+.btn{
+  font-size: small;
 }
 
 .text-muted{
@@ -20,88 +24,99 @@
   border-right: 10px;
 }
 
-.container {
-  position: relative;
-  width: 50%;
+.title{
+  font-size: small;
 }
 
-
-/* .button-like {
-  border: 2px solid #8a8a8a;
-  background-color: transparent;
-  text-decoration: none;
-  padding: 1rem;
-  position: relative;
-  vertical-align: middle;
-  text-align: center;
-  display: inline-block;
-  border-radius: 3rem;
-  color: #8a8a8a;
+.button span {
   transition: all ease 0.4s;
-} */
-
-/* .button-like span {
-  margin-left: 0.5rem;
-}
-
-.button-like .fa,
-.button-like span {
-  transition: all ease 0.4s;
-}
-
-.button-like:focus {
-  background-color: transparent;
-}
-
-.button-like:focus .fa,
-.button-like:focus span {
-  color: #8a8a8a;
-} */
-
- .button-like:hover {
-  border-color: #cc4b37;
-  background-color: transparent;
-}
-
-.button-like:hover .fa,
-.button-like:hover span {
-  color: #cc4b37;
-}
-
-.liked {
-  background-color: #cc4b37;
-  border-color: #cc4b37;
-}
-
-.liked .fa,
-.liked span {
-  color: #fefefe;
-}
-
-.liked:active {
-  background-color: #cc4b37;
-}
-
-.liked:focus .fa,
-.liked:focus span {
-  color: #fefefe;
-}
-
-.liked:hover {
-  background-color: #cc4b37;
-  border-color: #cc4b37;
-}
-
-.liked:hover .fa,
-.liked:hover span {
-  color: #fefefe;
-}
-
-button {
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
   outline:none;
+}
+
+.button:focus {
+  background-color: transparent;
+  outline:none;
+}
+
+.button:focus .fa,
+.button:focus span {
+  color: #8a8a8a;
+  outline:none;
+
+}
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.sidebar {
+  position: sticky;
+  margin: 10pt;
+}
+
+#filters{
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  width: 15vw;
+  border-top: solid 1px #8a8a8a;
+  border-right: solid 1px #8a8a8a;
+  border-radius: .75rem;
+}
+
+#products{
+  padding-left: 15vw !important;
+}
+
+#colorFilter{
+  height: 10vh;
+  overflow: scroll;
+}
+#colorFilter:hover{
+  height: 20vh;
+  overflow: scroll;
+}
+#brandFilter{
+  height: 10vh;
+  overflow: scroll;
+}
+#brandFilter:hover{
+  height: 20vh;
+  overflow: scroll;
+}
+#itemFilter{
+  height: 10vh;
+  overflow: scroll;
+}
+#itemFilter:hover{
+  height: 20vh;
+  overflow: scroll;
+}
+
+#productList{
+  padding-top: 4rem;
+  z-index: -1;
+}
+
+#add-fav{
+  position: absolute;
+  right:.5rem;
+  top:.5rem;
+}
+
+#add-fav-x{
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#imgPop{
+  position: fixed;
+  bottom: 1rem;
+  left: 5vw;
+}
+
+#sizeImg{
+  max-width:100%;
+  max-height:100%;
 }

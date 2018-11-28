@@ -1,5 +1,14 @@
+#mainNav{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 4rem;
+  z-index: 999;
+}
+
 #page-header{
   padding-top: .5rem;
+  cursor: pointer;
 }
 
 #nav-header{
@@ -15,6 +24,12 @@
 }
 
 #nav-button{
+  position: absolute;
+  margin-left: 5rem;
+  z-index: 999;
+}
+
+#home-button{
   position: absolute;
   z-index: 999;
 }
@@ -101,6 +116,10 @@ position: absolute;
   bottom: 10px;
   border-top: solid #ddd;
   width: 13.5vw;
+}
+
+.paddingDiv:focus {
+  outline: 0;
 }
 
 .nav-item{

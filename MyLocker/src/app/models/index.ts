@@ -1,6 +1,9 @@
 // ng-barrel
 
 export * from './LoginResultModel';
+export * from './Product';
 export * from './RegisterResultModel';
-export * from './DeleteResultModel';
-export * from './product';
+export * from './Favorite';
+export * from './Name';
+export * from './Email';
+export * from './Rating';

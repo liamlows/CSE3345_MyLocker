@@ -2,102 +2,160 @@
   <h1 class="text-info text-center" id="dash-head">
     My Account
     <br>
-      <small>Change or edit your information below!</small>
+    <small>Change or edit your information below!</small>
   </h1>
 
 
   <div class="container-fluid">
     <div class="row" style="height:80vh;">
-      <!-- <form> -->
-        <div class="col-md-6 mt-2">
-          <div class="row justify-content-center align-items-center h-50 border-right">
+      <div class="col-md-6 mt-2">
+        <div class="row justify-content-center align-items-center h-50 border-right">
 
-            <div class="card border-0" id="email-card">
-              <h3 class="text-info text-center">Email</h3>
-              <h5 class="text-info text-center">Please enter your new valid email to update.</h5>
+          <div class="card border-0" id="update-card">
+            <h3 class="text-info text-center">Email</h3>
+            <h5 class="text-info text-center">Please enter your new valid email to update.</h5>
+            <form name="EmailUpdate" #loginUpdate="ngForm" (ngSubmit)="emailUpdate.resetForm()" novalidate>
 
               <div class="form-group input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                 </div>
-                <input class="form-control" placeholder="{{this.curEmail}}" type="email" [(ngModel)]="email" name="email">
+                <input class="form-control"
+                placeholder="Email"
+                type="email"
+                name="email"
+                id="email"
+                [(ngModel)]="this.emailText"
+                #email="ngModel"
+                [ngClass]="{ 'is-invalid': email.touched && email.invalid }"
+                required email
+                >
+                <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required" class="alert alert-danger mb-0">Email is required</div>
+                  <div *ngIf="email.errors.email" class="alert alert-danger mb-0">Email must be a valid email address</div>
+                </div>
               </div>
-
-              <!-- <div class="justify-content-center"> -->
-                <button type="submit" class="btn btn-info" (click)="updateEmail()" [disabled]="!this.email">Update</button>
-              <!-- </div> -->
-            </div>
-
-
-
+              <button type="submit" class="btn btn-info btn-block" (click)="updateEmail()" [disabled]="loginUpdate.invalid || email.pristine">Update</button>
+            </form>
           </div>
-          <div class="row justify-content-center align-items-center h-50 border-right">
 
-            <div class="card border-0" id="email-card">
-              <h3 class="text-info text-center">Name</h3>
-              <h5 class="text-info text-center">Please enter a first name and last name to update.</h5>
+        </div>
+        <div class="row justify-content-center align-items-center h-50 border-right">
 
-              <!-- <h5 class="text-info text-center">Current: {{this.name}}</h5> -->
+          <div class="card border-0" id="update-card">
+            <h3 class="text-info text-center">Name</h3>
+            <h5 class="text-info text-center">Please enter a first name and last name to update.</h5>
 
-              <!-- <h5 class="text-info">First Name:</h5> -->
+            <form name="nameUpdate" #nameUpdate="ngForm" (ngSubmit)="nameUpdate.resetForm()" novalidate>
               <div class="form-group input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
-                <input class="form-control" placeholder="{{this.curFirstName}}" type="text" [(ngModel)]="firstName" name="firstName">
+                <input class="form-control"
+                placeholder="First Name"
+                type="text"
+                name="firstName"
+                id="firstName"
+                [(ngModel)]="this.firstNameText"
+                #first_name="ngModel"
+                [ngClass]="{ 'is-invalid': first_name.touched && first_name.invalid }"
+                required
+                >
+                <div *ngIf="first_name.touched && first_name.invalid" class="invalid-feedback">
+                  <div *ngIf="first_name.errors.required" class="alert alert-danger mb-0">First name is required</div>
+                </div>
               </div>
 
-              <!-- <h5 class="text-info">Last Name:</h5> -->
               <div class="form-group input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
-                <input class="form-control" placeholder="{{this.curLastName}}" type="text" [(ngModel)]="lastName" name="lastName">
+                <input class="form-control"
+                placeholder="Last Name"
+                type="text"
+                name="lastName"
+                id="lastName"
+                [(ngModel)]="this.lastNameText"
+                #last_name="ngModel"
+                [ngClass]="{ 'is-invalid': last_name.touched && last_name.invalid }"
+                required
+                >
+                <div *ngIf="last_name.touched && last_name.invalid" class="invalid-feedback">
+                  <div *ngIf="last_name.errors.required" class="alert alert-danger mb-0">Last name is required</div>
+                </div>
               </div>
 
-              <!-- <div class="justify-content-center"> -->
-                <button type="submit" class="btn btn-info" (click)="updateName()" [disabled]="!this.firstName || !this.lastName">Update</button>
-              <!-- </div> -->
-            </div>
-
-
+              <button type="submit" class="btn btn-info btn-block" (click)="updateName()" [disabled]="nameUpdate.invalid || (first_name.pristine && last_name.pristine)">Update</button>
+            </form>
           </div>
         </div>
-        <div class="col-md-6 mt-2">
-          <div class="row justify-content-center align-items-center h-50 border-left">
+      </div>
 
-            <div class="card border-0" id="email-card">
-              <h3 class="text-info text-center">Password</h3>
-              <h5 class="text-info text-center">Please enter a new password.</h5>
+      <div class="col-md-6 mt-2">
+        <div class="row justify-content-center align-items-center h-50 border-left">
+
+          <div class="card border-0" id="update-card">
+            <h3 class="text-info text-center">Password</h3>
+            <h5 class="text-info text-center">Please enter a new password.</h5>
+
+            <form name="passwordUpdate" #passwordUpdate="ngForm" (ngSubmit)="passwordUpdate.resetForm()" novalidate>
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input class="form-control"
+                placeholder="Password"
+                type="password"
+                name="password"
+                id="password"
+                [(ngModel)]="this.passwordText"
+                #password="ngModel"
+                [ngClass]="{ 'is-invalid': password.touched && (password.invalid || (this.passwordText != this.passwordConfirmText))}"
+                required minlength="6"
+                >
+                <div *ngIf="password.touched && password.invalid" class="invalid-feedback">
+                  <div *ngIf="password.errors.required" class="alert alert-danger mb-0">Password is required</div>
+                  <div *ngIf="password.errors.minlength" class="alert alert-danger mb-0">Password must be at least 6 characters</div>
+                </div>
+              </div>
 
               <div class="form-group input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Password" type="password" [(ngModel)]="password" name="password">
-              </div>
+                <input class="form-control"
+                placeholder="Confirm Password"
+                type="password"
+                name="passwordConfirm"
+                [(ngModel)]="this.passwordConfirmText"
+                #password_confirm="ngModel"
+                [ngClass]="{ 'is-invalid': password_confirm.touched && (password_confirm.invalid || (this.passwordText != this.passwordConfirmText) )}"
+                required minlength="6"
+                >
+                <div *ngIf="password_confirm.touched && password_confirm.invalid" class="invalid-feedback">
+                  <div *ngIf="password_confirm.errors.required" class="alert alert-danger mb-0">Password is required</div>
+                  <div *ngIf="password_confirm.errors.minlength" class="alert alert-danger mb-0">Password must be at least 6 characters</div>
 
-              <div class="form-group input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Confirm Password" type="password" [(ngModel)]="passwordConfrim" name="passwordConfrim">
+                <div class="invalid-feedback">
+                  <div *ngIf="this.passwordText != this.passwordConfirmText" class="alert alert-danger mb-0">Passwords must match</div>
+                </div>
               </div>
 
-              <!-- <div class="justify-content-center"> -->
-                <button type="submit" class="btn btn-info" (click)="updatePassword()" [disabled]="(this.password !== this.passwordConfrim) || !this.password">Update</button>
-              <!-- </div> -->
-            </div>
-
+              <button  class="btn btn-info btn-block" (click)="updatePassword()"
+              [disabled]="passwordUpdate.invalid || (this.passwordText != this.passwordConfirmText) || (password.pristine && password_confirm.pristine)"
+              >Update</button>
+            </form>
           </div>
-          <div class="row justify-content-center align-items-center h-50 border-left">
-            <div class="card border-0" id="email-card">
-              <h3 class="text-info text-center">Delete Acccount</h3>
-              <button type="submit" class="btn btn-danger" (click)="deleteAccount()">Delete Account</button>
-            </div>
+
+        </div>
+        <div class="row justify-content-center align-items-center h-50 border-left">
+          <div class="card border-0" id="update-card">
+            <h3 class="text-info text-center">Delete Acccount</h3>
+            <button type="submit" class="btn btn-danger" (click)="deleteAccount()">Delete Account</button>
           </div>
         </div>
-      <!-- </form> -->
+      </div>
     </div>
   </div>
 </div>

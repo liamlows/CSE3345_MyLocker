@@ -1,24 +1,420 @@
-<div class="row card-group mx-3" >
-  <div class="col-4"  *ngFor="let eachItem of product">
-    <div class="card">
-      <button class="button button-like col-1">
-        <i class="fa fa-heart" ng-click="eachItem.favorite_array.push(eachItem.id)" ng-init="eachItem.favorite_array=[]"></i>
-      </button>
-      <img class="card-img-top" src='{{ eachItem.image }}' alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{eachItem.name}}</h5>
-        <p class="card-text">Color: {{eachItem.color}}</p>
-        <p class="card-text">Fabric: {{eachItem.materials}}</p>
+<div *ngIf="product">
+  <div class="" id="productList">
+    <!-- ########## -->
+    <div class="p-0" id="filters">
+      <nav class="filterSidebar">
+        <article class="card-group-item">
+          <header class="card-header text-center"><h6 class="text-info m-0">Item Name</h6></header>
+          <div class="filter-content">
+            <div class="card-body">
+              <input [(ngModel)]="filterSearch" placeholder="Enter Item Name" style="width:100%;" />
+            </div>
+          </div>
+        </article>
+        <article class="card-group-item">
+          <header class="card-header text-center"><h6 class="text-info m-0">Brand</h6></header>
+          <div class="filter-content" id="brandFilter">
+            <div class="card-body text-secondary">
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="BrandOptions"
+                  [(ngModel)]="filterBrand"
+                  value=""
+                  />
+                  All
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="BrandOptions"
+                  [(ngModel)]="filterBrand"
+                  value="LL Bean"
+                  />
+                  LL Bean
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="BrandOptions"
+                  [(ngModel)]="filterBrand"
+                  value="Yeezy"
+                  />
+                  Yeezy
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="BrandOptions"
+                  [(ngModel)]="filterBrand"
+                  value="Lululemon"
+                  />
+                  Lululemon
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="BrandOptions"
+                  [(ngModel)]="filterBrand"
+                  value="GOLF"
+                  />
+                  GOLF
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="BrandOptions"
+                  [(ngModel)]="filterBrand"
+                  value="Nike"
+                  />
+                  Nike
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="BrandOptions"
+                  [(ngModel)]="filterBrand"
+                  value="Ralph Lauren"
+                  />
+                  Ralph Lauren
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card-group-item">
+          <header class="card-header text-center"><h6 class="text-info m-0">Item Type</h6></header>
+          <div class="filter-content" id="itemFilter">
+            <div class="card-body text-secondary">
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ItemOptions"
+                  [(ngModel)]="filterItem"
+                  value=""
+                  />
+                  All
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ItemOptions"
+                  [(ngModel)]="filterItem"
+                  value="shirt"
+                  />
+                  Shirts
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ItemOptions"
+                  [(ngModel)]="filterItem"
+                  value="pant"
+                  />
+                  Pants
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ItemOptions"
+                  [(ngModel)]="filterItem"
+                  value="jacket"
+                  />
+                  Outerwear
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ItemOptions"
+                  [(ngModel)]="filterItem"
+                  value="hat"
+                  />
+                  Accesories
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ItemOptions"
+                  [(ngModel)]="filterItem"
+                  value="shoes"
+                  />
+                  Shoes
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card-group-item">
+          <header class="card-header text-center"><h6 class="text-info m-0">Color</h6></header>
+          <div class="filter-content" id="colorFilter">
+            <div class="card-body text-secondary">
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ColorOptions"
+                  [(ngModel)]="filterColor"
+                  value=""
+                  />
+                  All
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ColorOptions"
+                  [(ngModel)]="filterColor"
+                  value="red"
+                  />
+                  Red
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ColorOptions"
+                  [(ngModel)]="filterColor"
+                  value="blue"
+                  />
+                  Blue
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ColorOptions"
+                  [(ngModel)]="filterColor"
+                  value="navy"
+                  />
+                  Navy
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ColorOptions"
+                  [(ngModel)]="filterColor"
+                  value="green"
+                  />
+                  Green
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ColorOptions"
+                  [(ngModel)]="filterColor"
+                  value="khaki"
+                  />
+                  Khaki
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ColorOptions"
+                  [(ngModel)]="filterColor"
+                  value="brown"
+                  />
+                  Brown
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ColorOptions"
+                  [(ngModel)]="filterColor"
+                  value="black"
+                  />
+                  Black
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="ColorOptions"
+                  [(ngModel)]="filterColor"
+                  value="multi"
+                  />
+                  Multi-Colored
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card-group-item">
+          <header class="card-header text-center"><h6 class="text-info m-0">Gender</h6></header>
+          <div class="card-body text-secondary">
+            <span class="radio px-1">
+              <label class="m-0">
+                <input
+                type="radio"
+                name="GenderOptions"
+                [(ngModel)]="filterGender"
+                value=""
+                />
+                All
+              </label>
+            </span>
+
+            <span class="radio px-1">
+              <label class="m-0">
+                <input
+                type="radio"
+                name="GenderOptions"
+                [(ngModel)]="filterGender"
+                value="Male"
+                />
+                Male
+              </label>
+            </span>
+
+            <span class="radio px-1">
+              <label class="m-0">
+                <input
+                type="radio"
+                name="GenderOptions"
+                [(ngModel)]="filterGender"
+                value="Women"
+                />
+                Female
+              </label>
+            </span>
+
+          </div>
+        </article>
+        <article class="card-group-item">
+          <header class="card-header text-center"><h6 class="text-info m-0">Price</h6></header>
+          <div class="filter-content">
+            <div class="card-body">
+              <!-- <app-slider>loading</app-slider> -->
+            </div>
+          </div>
+        </article>
+
+        <article id="imgPop" class="text-center">
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sizeModal">
+            Size Chart
+          </button>
+        </article>
+      </nav>
+    </div>
+    <!-- ########## -->
+    <div class="" *ngIf="product.length == 0">
+      <h2 class="text-center text-info">Error fetching products... please refresh.</h2>
+    </div>
+    <!-- ########## -->
+    <div class="p-0" id="products">
+      <div class="card-group d-flex pt-3" >
+        <div class="col-3 pb-3" *ngFor="
+        let eachItem of (product
+        | filterByColor: filterColor
+        | filterByItem: filterItem
+        | filterByGender: filterGender
+        | searchByFilter: filterSearch
+        | filterByBrand: filterBrand)
+        ">
+        <div class="card rounded" style="min-height: 100%;">
+
+          <span id="add-fav" *ngIf="this.authGuard.authIsLogged">
+            <i class="fa fa-heart text-info" id="add-fav-x" aria-hidden="true" (click)="addFavorite(eachItem.id)"></i>
+          </span>
+
+          <div class="card-body rounded">
+            <div class="p-0" id="product-brand">
+              <!-- <h3>{{eachItem.brand}}</h3> -->
+              <h3 class="text-center text-secondary">{{eachItem.brand_name}}</h3>
+            </div>
+            <div class="p-0" id="product-image">
+              <a href="{{eachItem.url}}">
+                <img class="card-img-top" id="prod-img" src="{{ eachItem.image }}" alt="Card image cap"/>
+              </a>
+            </div>
+            <div class="p-0" id="product-info">
+              <h6 class="text-muted pt-2">{{eachItem.name}}</h6>
+              <h6 class="text-muted pt-2">{{eachItem.price | currency}}</h6>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="float-left p-0 pt-1" id="product-rating">
+              <app-rating [rating]='eachItem.rating' [itemId]='eachItem.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
+            </div>
+            <div class="float-right p-0" id="item-link">
+              <a href="{{eachItem.url}}">
+                <button type="button" class="btn btn-info">Buy Now</button>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card-footer">
-        <small class="text-muted">${{eachItem.price}}</small>
-        <a href="{{eachItem.url}}">
-          <button type="button " style="float: right;" class="btn btn-success">Buy Now</button>
-        </a>
-        <div>
-          <i onclick="setLike(this)" ></i>
-          <button class="fa fa-thumbs-up" ng-click="eachItem.like_count = eachItem.like_count + 1" ng-init="eachItem.like_count=0" ></button>
-          <button class="fa fa-thumbs-down" ng-click="eachItem.like_count = eachItem.like_count + 1" ng-init="eachItem.like_count=0" ></button>
+    </div>
+    <!-- ########## -->
+    <div class="modal fade" id="sizeModal" tabindex="-1" role="dialog" aria-labelledby="sizeModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sizeModalLabel">Size Chart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img class="" id="sizeImg" src="assets/img/size.png" alt="Size Table"/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>

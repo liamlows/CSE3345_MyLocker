@@ -2,32 +2,52 @@
   <div class="mx-auto my-auto card mt-5" id="login-card">
     <div class="card-body text-center">
       <h4 class="card-title mb-3 text-center">Login</h4>
-      <form>
-        <!-- <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" placeholder="Email Address" [(ngModel)]="email" name="email">
-        </div> -->
+
+      <form name="loginForm" #loginForm="ngForm" novalidate>
+
         <div class="form-group input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            <span class="input-group-text"> <i class="fa fa-envelope"></i></span>
           </div>
-          <input class="form-control" placeholder="Email address" type="email" [(ngModel)]="email" name="email" id="email">
+          <input class="form-control"
+          placeholder="Email address"
+          type="email"
+          name="email"
+          id="email"
+          [(ngModel)]="loginControl.email"
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': email.touched && email.invalid }"
+          required email>
+          <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+            <div *ngIf="email.errors.email || email.errors.required" class="alert alert-danger mb-0">Email must be a valid email address</div>
+          </div>
         </div>
-        <!-- <div class="form-group">
-          <label for="email">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password" name="password">
-        </div> -->
+
         <div class="form-group input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div>
-          <input class="form-control" placeholder="Create password" type="password" [(ngModel)]="password" id="password" name="password">
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block" (click)="tryLogin()" [disabled]="!this.email || !this.password">Login</button>
+          <input class="form-control"
+          placeholder="Create password"
+          type="password"
+          name="password"
+          id="password"
+          [(ngModel)]="loginControl.password"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': password.touched && password.invalid }"
+          required minlength="6"
+          >
+          <div *ngIf="password.touched && password.invalid" class="invalid-feedback">
+            <div *ngIf="password.errors.required" class="alert alert-danger mb-0">Password is required</div>
+            <div *ngIf="password.errors.minlength" class="alert alert-danger mb-0">Password must be at least 6 characters</div>
+          </div>
         </div>
 
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" (click)="tryLogin()" [disabled]="loginForm.invalid">Login</button>
+        </div>
       </form>
+
       <p class="divider-text">
         <span class="bg-white">OR</span>
       </p>
@@ -36,26 +56,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- <form name="form" (ngSubmit)="f.form.valid && tryLogin()" #f="ngForm" novalidate>
-
-<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-<label for="username">Username</label>
-<input type="text" class="form-control" name="username" [(ngModel)]="email" #username="ngModel" required />
-<div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-</div>
-
-<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-<label for="password">Password</label>
-<input type="password" class="form-control" name="password" [(ngModel)]="password" #password="ngModel" required />
-<div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-</div>
-
-<div class="form-group">
-<button [disabled]="loading" class="btn btn-primary">Login</button>
-<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-</div>
-
-<div *ngIf="error" class="alert alert-danger">{{error}}</div>
-</form> -->

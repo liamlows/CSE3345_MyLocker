@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { CollapseComponent } from './collapse/collapse.component';
 import { BrowserAnimationsModule } from '../../node_modules/@angular/platform-browser/animations';
 import { FavoritesComponent } from './models/favorites/favorites.component';
-// import { SideNavComponent } from './ui/side-nav/side-nav.component';
+import { RatingComponent } from './itempage/rating/rating.component';
 
 //// TODO:
 //global error handler
@@ -41,7 +41,7 @@ import { FavoritesComponent } from './models/favorites/favorites.component';
     AppComponent,
     CollapseComponent,
     FavoritesComponent,
-    // SideNavComponent,
+    // RatingComponent
   ],
   providers: [
     NeedAuthGuard

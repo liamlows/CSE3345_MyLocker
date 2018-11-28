@@ -2,11 +2,12 @@
   margin-top: .5rem;
 }
 
-#email-card{
+#update-card{
   width: 20vw;
 }
 
 #dashboard-body{
+  padding-top: 4rem;
   position: fixed;
   height: 100vh;
   width: 100vw;

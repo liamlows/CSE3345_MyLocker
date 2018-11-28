@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from "../product";
+import { Product } from "../Product";
 import { ApiService } from "src/app/api.service";
+import { CustomerService } from '../../customer.service';
 
 @Component({
   selector: 'app-favorites',
@@ -9,17 +10,27 @@ import { ApiService } from "src/app/api.service";
 })
 export class FavoritesComponent implements OnInit {
 
-  product: Product;
+  favorites: Product[] = [];
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private customer: CustomerService,
   ) { }
 
   ngOnInit() {
-    this.api.getAllData().subscribe(
+    this.api.getFavorites(this.customer.getId()).subscribe(
       (product) => {
-        this.product = product;
+        this.favorites = product;
     });
+  }
+
+  removeFav(favId:string){
+    this.api.removeFavorite(favId).subscribe(
+      () => {
+        alert("Favorite Removed");
+        this.ngOnInit();
+      }
+    );
   }
 
 }

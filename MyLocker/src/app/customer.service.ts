@@ -24,9 +24,14 @@ export class CustomerService {
     localStorage.setItem(EMAIL, email);
   }
 
-  // setName(email: string): void {
-  //   localStorage.setItem(EMAIL, email);
-  // }
+  setName(firstName: string, lastName: string): void {
+    localStorage.setItem(FIRST_NAME, firstName);
+    localStorage.setItem(LAST_NAME, lastName);
+  }
+
+  setEmail(email: string): void {
+    localStorage.setItem(EMAIL, email);
+  }
 
   removeUser(): void {
     localStorage.removeItem(TOKEN);
@@ -37,11 +42,11 @@ export class CustomerService {
   }
 
   getFirstName(): string {
-    return localStorage.getItem(LAST_NAME);
+    return localStorage.getItem(FIRST_NAME);
   }
 
   getLastName(): string {
-    return localStorage.getItem(FIRST_NAME);
+    return localStorage.getItem(LAST_NAME);
   }
 
   getEmail(): string {
@@ -51,10 +56,6 @@ export class CustomerService {
   getId(): string {
     return localStorage.getItem(ID);
   }
-
-  // removeToken(): void {
-  //   localStorage.removeItem(TOKEN);
-  // }
 
   isLogged() {
     return localStorage.getItem(TOKEN) == '1';

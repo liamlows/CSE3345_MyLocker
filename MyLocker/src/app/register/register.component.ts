@@ -12,10 +12,7 @@ export class RegisterComponent implements OnInit {
 
   title="Registration";
 
-  first_name: string;
-  last_name: string;
-  email: string;
-  password: string;
+  registerControl:any={};
 
   constructor(
     private api: ApiService,
@@ -27,7 +24,7 @@ export class RegisterComponent implements OnInit {
   }
 
   tryRegister() {
-    this.api.register(this.first_name, this.last_name, this.email, this.password).subscribe(
+    this.api.register(this.registerControl.first_name, this.registerControl.last_name, this.registerControl.email, this.registerControl.password).subscribe(
       r => {
         if(r.errorCode == '-1'){
           alert("Invalid registration parameters.");

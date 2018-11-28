@@ -1,18 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, } from "@angular/core";
+import {  trigger, state, style, transition, animate, keyframes } from '@angular/animations'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    trigger('imgSlideLeft', [
+      state('out, void', style({
+        transform: 'translateX(0%)',
+        opacity: 0
+      })),
+      state('in', style({
+        transform: 'translateX(100%)',
+        opacity: 1
+      })),
+      transition('out => in', animate('500ms'))
+    ])
+  ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
 
-  title = "Home";
-  //imgsrc = "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+  state:string = 'out';
 
-  constructor() { }
-
-  ngOnInit() {
+  ngAfterViewInit() {
+    this.state = 'in';
   }
 
 }

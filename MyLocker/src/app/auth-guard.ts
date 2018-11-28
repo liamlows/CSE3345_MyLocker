@@ -17,7 +17,6 @@ export class NeedAuthGuard implements CanActivate {
 
     if(this.customerService.isLogged()) {
       this.authIsLogged = true;
-      console.log(this.authIsLogged);
       return true;
     }
     else{

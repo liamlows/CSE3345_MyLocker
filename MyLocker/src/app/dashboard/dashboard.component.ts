@@ -12,20 +12,13 @@ import { NeedAuthGuard } from '../auth-guard';
 export class DashboardComponent implements OnInit {
 
   title="My Account";
-  curFirstName=`${this.customer.getFirstName()}`;
-  curLastName=`${this.customer.getLastName()}`;
-  curEmail=`${this.customer.getEmail()}`;
-
-  //curFirstName:string = "Bobby";
-  //curLastName:string = "Blue";
-  //curEmail:string = "bob.blue@bobby.com";
 
   id:string;
-  email:string;
-  firstName:string;
-  lastName:string;
-  password:string;
-  passwordConfrim:string;
+  emailText:string = `${this.customer.getEmail()}`;
+  firstNameText:string = `${this.customer.getFirstName()}`;
+  lastNameText:string = `${this.customer.getLastName()}`;
+  passwordText:string;
+  passwordConfirmText:string;
 
   constructor(
   private api: ApiService,
@@ -39,29 +32,33 @@ export class DashboardComponent implements OnInit {
   }
 
   updateEmail() {
-    this.api.updateEmailById(this.customer.getId(),this.email);
-    this.email = '';
+    this.api.updateEmailById(this.customer.getId(),this.emailText).subscribe(
+      result => {
+        this.customer.setEmail(result.email);
+        this.emailText = result.email;
+      }
+    );
+    
+
   }
 
   updateName() {
-    this.api.updateNameById(this.customer.getId(),this.firstName, this.lastName);
-    this.firstName = '';
-    this.lastName = '';
+    this.api.updateNameById(this.customer.getId(),this.firstNameText, this.lastNameText).subscribe(
+      result =>{
+        this.customer.setName(result.first_name, result.last_name);
+        this.firstNameText = result.first_name;
+        this.lastNameText = result.last_name;
+      }
+    );
   }
 
   updatePassword() {
-    this.api.updatePasswordById(this.customer.getId(), this.password);
-    this.password = '';
-    this.passwordConfrim = '';
+    this.api.updatePasswordById(this.customer.getId(), this.passwordText);
   }
 
   deleteAccount() {
     if(window.confirm("Are you sure you want to delete your account?")){
       this.api.deleteAccountById(this.customer.getId());
-      // .subscribe(
-      //   () => {
-      //     this.accountlist.splice(index,1);
-      //   });
     }
   }
 

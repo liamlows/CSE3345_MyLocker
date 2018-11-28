@@ -3,14 +3,15 @@ export class Product {
   name?: string;
   color?: string;
   price?: number;
-  materials?: string;
+  // materials?: string;
   style?: string;
   gender?: string;
-  brand?: string;
+  brand_name?: string;
   image?: string;
   url?: string;
-  sizes?: string;
-  like_count?: number;
-  dislike_count?: number;
+  // sizes?: string;
+  // like_count?: number;
+  // dislike_count?: number;
   rating?: number;
+  fav_id?: string;
 }

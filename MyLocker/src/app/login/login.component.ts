@@ -11,10 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  title ="Login";
-
-  email: string;
-  password: string;
+  loginControl:any = {};
 
   constructor(
     private api: ApiService,
@@ -23,30 +20,23 @@ export class LoginComponent implements OnInit {
   ) { }
 
   tryLogin() {
-    this.api.login(this.email, this.password).subscribe(
+    this.api.login(this.loginControl.email, this.loginControl.password).subscribe(
       r => {
         this.customer.removeUser();
 
         if (r.loginAuth == '1') {
-          //id: string, fname: string, lname: string, email: string
-          //this.customer.setUser()
-          //this.customer.setToken(r.loginAuth);
           this.customer.setUser(r.id, r.first_name, r.last_name, r.email);
           this.router.navigateByUrl('/dashboard');
         }
 
         else if(r.loginAuth == '0'){
           alert("Invalid User or Password.");
-          //alert(r.error.error);
         }
 
         else{
           alert("Unexpected login error...")
         }
-      }//,          WHY USE ANOTHER R HERE????????????????????????????
-      // r => {
-      //   alert(r.error.error);
-      // }
+      }
     );
   }
 

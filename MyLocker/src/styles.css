@@ -1,2 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+.ng-touched.form-control.ng-invalid{
+  border-radius: .25rem !important;
+  border-right: solid red 5px;
+}
+
+.ng-touched.form-control.is-invalid{
+  border-radius: .25rem !important;
+  border-right: solid red 5px !important;
+}
+
+.ng-touched.form-control.ng-valid{
+  border-radius: .25rem !important;
+  border-right: solid green 5px;
+}

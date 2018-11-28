@@ -3,38 +3,80 @@
 		<div class="card-body text-center">
 			<h4 class="card-title mb-3 text-center">Create Account</h4>
 
-			<form>
+			<form name="registerForm" #registerForm="ngForm" novalidate>
 				<!-- firstname -->
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 					</div>
-					<input class="form-control" placeholder="First Name" type="text" [(ngModel)]="first_name" name="first_name" id="first_name">
+					<input class="form-control"
+					placeholder="First Name"
+					type="text"
+					name="first_name"
+					id="first_name"
+					[(ngModel)]="registerControl.first_name"
+					#first_name="ngModel"
+					required
+					>
 				</div>
 				<!-- lastname -->
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 					</div>
-					<input class="form-control" placeholder="Last Name" type="text" [(ngModel)]="last_name" name="last_name" id="last_name">
+					<input class="form-control"
+					placeholder="Last Name"
+					type="text"
+					name="last_name"
+					id="last_name"
+					[(ngModel)]="registerControl.last_name"
+					#last_name="ngModel"
+					required
+					>
 				</div>
 				<!-- email -->
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 					</div>
-					<input class="form-control" placeholder="Email address" type="email" [(ngModel)]="email" name="email" id="email">
+					<input class="form-control"
+					placeholder="Email address"
+					type="email"
+					name="email"
+					id="email"
+					[(ngModel)]="registerControl.email"
+					[ngClass]="{ 'is-invalid': email.touched && email.invalid }"
+					#email="ngModel"
+					required email
+					>
+					<div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+						<div *ngIf="email.errors.email || email.errors.required" class="alert alert-danger mb-0">Email must be a valid email address</div>
+					</div>
 				</div>
 				<!-- password -->
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 					</div>
-					<input class="form-control" placeholder="Create password" type="password" [(ngModel)]="password" id="password" name="password">
+					<input class="form-control"
+					placeholder="Create password"
+					type="password"
+					id="password"
+					name="password"
+					[(ngModel)]="registerControl.password"
+					#password="ngModel"
+					required
+					minlength="6"
+					[ngClass]="{ 'is-invalid': password.touched && password.invalid }"
+					>
+					<div *ngIf="password.touched && password.invalid" class="invalid-feedback">
+            <div *ngIf="password.errors.required" class="alert alert-danger mb-0">Password is required</div>
+            <div *ngIf="password.errors.minlength" class="alert alert-danger mb-0">Password must be at least 6 characters</div>
+          </div>
 				</div>
 				<!-- submit -->
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-block" (click)="tryRegister()" [disabled]="!this.first_name || !this.last_name || !this.email || !this.password">Create Account</button>
+					<button type="submit" class="btn btn-primary btn-block" (click)="tryRegister()" [disabled]="registerForm.invalid">Create Account</button>
 				</div>
 			</form>
 
@@ -44,24 +86,3 @@
 		</div>
 	</div>
 </div>
-
-
-<!-- <div class="form-group input-group">
-<div class="input-group-prepend">
-<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-</div>
-<input class="form-control" placeholder="Repeat password" type="password">
-</div>  -->
-
-
-<!-- <div class="form-group input-group">
-<div class="input-group-prepend">
-<span class="input-group-text"> <i class="fa fa-building"></i> </span>
-</div>
-<select class="form-control">
-<option selected=""> Select job type</option>
-<option>Designer</option>
-<option>Manager</option>
-<option>Accaunting</option>
-</select>
-</div>  -->
