@@ -38,8 +38,6 @@ export class DashboardComponent implements OnInit {
         this.emailText = result.email;
       }
     );
-    
-
   }
 
   updateName() {
@@ -53,12 +51,19 @@ export class DashboardComponent implements OnInit {
   }
 
   updatePassword() {
-    this.api.updatePasswordById(this.customer.getId(), this.passwordText);
+    this.api.updatePasswordById(this.customer.getId(), this.passwordText).subscribe(
+      () => {}
+    );
   }
 
   deleteAccount() {
     if(window.confirm("Are you sure you want to delete your account?")){
-      this.api.deleteAccountById(this.customer.getId());
+      this.api.deleteAccountById(this.customer.getId()).subscribe(
+        () => {
+          window.alert("Account Deleted!");
+          this.router.navigateByUrl('/home');
+        }
+      );
     }
   }
 

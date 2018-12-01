@@ -13,7 +13,7 @@
         </article>
         <article class="card-group-item">
           <header class="card-header text-center"><h6 class="text-info m-0">Brand</h6></header>
-          <div class="filter-content" id="brandFilter">
+          <div class="filter-content filterStyle" id="brandFilter">
             <div class="card-body text-secondary">
               <div class="radio">
                 <label>
@@ -103,7 +103,7 @@
         </article>
         <article class="card-group-item">
           <header class="card-header text-center"><h6 class="text-info m-0">Item Type</h6></header>
-          <div class="filter-content" id="itemFilter">
+          <div class="filter-content filterStyle" id="itemFilter">
             <div class="card-body text-secondary">
               <div class="radio">
                 <label>
@@ -181,7 +181,7 @@
         </article>
         <article class="card-group-item">
           <header class="card-header text-center"><h6 class="text-info m-0">Color</h6></header>
-          <div class="filter-content" id="colorFilter">
+          <div class="filter-content filterStyle" id="colorFilter">
             <div class="card-body text-secondary">
               <div class="radio">
                 <label>
@@ -295,50 +295,157 @@
         </article>
         <article class="card-group-item">
           <header class="card-header text-center"><h6 class="text-info m-0">Gender</h6></header>
-          <div class="card-body text-secondary">
-            <span class="radio px-1">
-              <label class="m-0">
-                <input
-                type="radio"
-                name="GenderOptions"
-                [(ngModel)]="filterGender"
-                value=""
-                />
-                All
-              </label>
-            </span>
+          <div class="filter-content" id="genderFilter">
+            <div class="card-body text-secondary">
+              <span class="radio px-1">
+                <label class="m-0">
+                  <input
+                  type="radio"
+                  name="GenderOptions"
+                  [(ngModel)]="filterGender"
+                  value=""
+                  />
+                  All
+                </label>
+              </span>
 
-            <span class="radio px-1">
-              <label class="m-0">
-                <input
-                type="radio"
-                name="GenderOptions"
-                [(ngModel)]="filterGender"
-                value="Male"
-                />
-                Male
-              </label>
-            </span>
+              <span class="radio px-1">
+                <label class="m-0">
+                  <input
+                  type="radio"
+                  name="GenderOptions"
+                  [(ngModel)]="filterGender"
+                  value="Male"
+                  />
+                  Male
+                </label>
+              </span>
 
-            <span class="radio px-1">
-              <label class="m-0">
-                <input
-                type="radio"
-                name="GenderOptions"
-                [(ngModel)]="filterGender"
-                value="Women"
-                />
-                Female
-              </label>
-            </span>
-
+              <span class="radio px-1">
+                <label class="m-0">
+                  <input
+                  type="radio"
+                  name="GenderOptions"
+                  [(ngModel)]="filterGender"
+                  value="Women"
+                  />
+                  Female
+                </label>
+              </span>
+            </div>
           </div>
         </article>
         <article class="card-group-item">
           <header class="card-header text-center"><h6 class="text-info m-0">Price</h6></header>
-          <div class="filter-content">
-            <div class="card-body">
-              <!-- <app-slider>loading</app-slider> -->
+          <div class="filter-content" id="priceFilter">
+            <div class="card-body text-secondary">
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="PriceOptions"
+                  [(ngModel)]="filterPrice"
+                  value=""
+                  />
+                  any
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="PriceOptions"
+                  [(ngModel)]="filterPrice"
+                  value="0"
+                  />
+                  $0-$50
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="PriceOptions"
+                  [(ngModel)]="filterPrice"
+                  value="50"
+                  />
+                  $50-$100
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="PriceOptions"
+                  [(ngModel)]="filterPrice"
+                  value="100"
+                  />
+                  $100-$150
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="PriceOptions"
+                  [(ngModel)]="filterPrice"
+                  value="150"
+                  />
+                  $150-$200
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="PriceOptions"
+                  [(ngModel)]="filterPrice"
+                  value="200"
+                  />
+                  $200-$250
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="PriceOptions"
+                  [(ngModel)]="filterPrice"
+                  value="250"
+                  />
+                  $250-$300
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="PriceOptions"
+                  [(ngModel)]="filterPrice"
+                  value="300"
+                  />
+                  $300-$350
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input
+                  type="radio"
+                  name="PriceOptions"
+                  [(ngModel)]="filterPrice"
+                  value="350"
+                  />
+                  $350 +
+                </label>
+              </div>
             </div>
           </div>
         </article>
@@ -363,7 +470,8 @@
         | filterByItem: filterItem
         | filterByGender: filterGender
         | searchByFilter: filterSearch
-        | filterByBrand: filterBrand)
+        | filterByBrand: filterBrand
+        | filterByPrice: filterPrice)
         ">
         <div class="card rounded" style="min-height: 100%;">
 

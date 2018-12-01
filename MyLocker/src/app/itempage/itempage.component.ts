@@ -21,6 +21,7 @@ export class ItempageComponent implements OnInit {
   filterGender = '';
   filterSearch = '';
   filterBrand = '';
+  filterPrice = '';
 
   constructor(
     private api: ApiService,
@@ -36,11 +37,12 @@ export class ItempageComponent implements OnInit {
       this.api.getFavorites(this.customer.getId()).subscribe(
         (favorites) => {
           this.favorites = favorites;
+          console.log(this.favorites);
         });
   }
 
   addFavorite(pId:string){
-    if(!this.favorites.find( ( (i: any) => i.id === pId) )){
+    if(!this.favorites.find( ( (i: any) => i.id == pId) )){
       this.api.addFavorite(pId,this.customer.getId()).subscribe(
         () => {}
       );
@@ -48,15 +50,19 @@ export class ItempageComponent implements OnInit {
   }
 
   ratingComponentClick(clickObj: any): void {
-    const item = this.product.find( ( (i: any) => i.id === clickObj.itemId) );
-    if (!!item) {
-      item.rating = clickObj.rating;
-      this.api.setProductRating(clickObj.itemId, clickObj.rating);
+    if(this.authGuard.authIsLogged){
+      const item = this.product.find( ( (i: any) => i.id === clickObj.itemId) );
+      if (!!item) {
+        item.rating = clickObj.rating;
+        this.api.setProductRating(this.customer.getId(),clickObj.itemId, clickObj.rating).subscribe(
+          (product) => {
+            item.rating = product.rating;
+          }
+        );
+      }
     }
-  }
-
-  showImg(){
-    this.imgShow = !this.imgShow;
-    console.log(this.imgShow);
+    else{
+      alert("Please log in to rate!");
+    }
   }
 }

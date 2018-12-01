@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { RegisterResultModel, LoginResultModel, Product, Favorite, Email, Name, Rating } from './models';
+import { RegisterResultModel, LoginResultModel, Product, Favorite, Email, Name, Rating, Password } from './models';
 
 
 @Injectable({
@@ -33,17 +33,11 @@ export class ApiService {
 
 //+++++++++++++++++++  PRODUCT FETCH CONTROLS  +++++++++++++++++++++++
 
-  setProductRating(itemId:number, rating:number): void {
-  // : Observable<Product[]>{
-  //   return this.http.post<Product[]>(
-  //     `${this.endPoint}/products/${itemId}`, {rating}
-  //   );
-    console.log(itemId, rating);
+  setProductRating(user_id:string, prod_id:number, rating:number): Observable<Product>{
+    return this.http.post<Product>(
+      `${this.endPoint}/rating`, {user_id, prod_id, rating}
+    );
   }
-
-  // getProductRating(): Observable<Rating>{
-  //   return this.http.get<Rating>(`${this.endPoint}/rating/`);
-  // }
 
   //GOOD
   getAllData(): Observable<Product[]> {
@@ -69,7 +63,7 @@ export class ApiService {
   }
 
 //+++++++++++++++++++  DASHBOARD CONTROLS  +++++++++++++++++++++++
-  //!!!! NOPE !!!!
+  //GOOD
   updateEmailById(id:string, email:string): Observable<Email>{
     return this.http.put<Email>(
       `${this.endPoint}/users/email/${id}`,
@@ -77,7 +71,7 @@ export class ApiService {
     );
   }
 
-  //!!!! NOPE !!!!
+  //GOOD
   updateNameById(id:string, first_name:string, last_name:string): Observable<Name>{
     return this.http.put<Name>(
       `${this.endPoint}/users/name/${id}`,
@@ -85,19 +79,19 @@ export class ApiService {
     )
   }
 
-  //!!!! NOPE !!!!
-  updatePasswordById(id:string, password:string){
-    // this.http.put(
-    //   `${this.endPoint}/users/${id}`,
-    //   {password}
-    // );
+  //GOOD
+  updatePasswordById(id:string, password:string): Observable<{}> {
+    return this.http.put<Password>(
+      `${this.endPoint}/users/password/${id}`,
+      {password}
+    );
   }
 
   //!!!! NOPE !!!!
-  deleteAccountById(id:string){
-    // this.http.delete(
-    //   `${this.endPoint}/users/${id}`
-    // );
+  deleteAccountById(id:string):Observable<{}>{
+    return this.http.delete(
+      `${this.endPoint}/users/delete/${id}`
+    );
   }
 
 }

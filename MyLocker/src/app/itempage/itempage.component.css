@@ -69,28 +69,17 @@
   padding-left: 15vw !important;
 }
 
-#colorFilter{
-  height: 10vh;
+.filterStyle{
+  height: 12vh;
   overflow: scroll;
 }
-#colorFilter:hover{
-  height: 20vh;
+.filterStyle:hover{
+  height: 21vh;
   overflow: scroll;
 }
-#brandFilter{
-  height: 10vh;
-  overflow: scroll;
-}
-#brandFilter:hover{
-  height: 20vh;
-  overflow: scroll;
-}
-#itemFilter{
-  height: 10vh;
-  overflow: scroll;
-}
-#itemFilter:hover{
-  height: 20vh;
+
+#priceFilter{
+  height: 12vh;
   overflow: scroll;
 }
 

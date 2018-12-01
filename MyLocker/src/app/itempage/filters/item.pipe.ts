@@ -12,7 +12,6 @@ export class ItemPipe implements PipeTransform {
       if (!filterByItem) { return items; }
   filterByItem = filterByItem.toLocaleLowerCase();
   return items.filter( it => {
-        console.log(it.id.toString());
         return it.style.toString().toLocaleLowerCase().includes(filterByItem);
       });
      }

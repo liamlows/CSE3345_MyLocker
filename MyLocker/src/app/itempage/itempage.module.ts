@@ -10,7 +10,8 @@ import { ItemPipe } from './filters/item.pipe';
 import { GenderPipe } from './filters/gender.pipe';
 import { SearchPipe } from './filters/search.pipe';
 import { BrandPipe } from './filters/brand.pipe';
-import { SliderPipe } from './filters/slider/slider.pipe';
+//import { SliderPipe } from './filters/slider/slider.pipe';
+import { PricePipe } from './filters/price.pipe';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { SliderPipe } from './filters/slider/slider.pipe';
     BrowserModule,
     FormsModule
   ],
-  declarations: [ItempageComponent, ColorPipe, ItemPipe, GenderPipe, SearchPipe, BrandPipe, SliderPipe, RatingComponent],
+  declarations: [ItempageComponent, ColorPipe, ItemPipe, GenderPipe, SearchPipe, BrandPipe, PricePipe, RatingComponent,],
   exports: [ItempageComponent]
 })
 export class ItempageModule { }
