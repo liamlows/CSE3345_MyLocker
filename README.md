@@ -33,12 +33,16 @@ In your angular.json file...
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"  
             ]   
 
+#### package.json
+Please note that currently the application runs off of the localhost IP (127.0.0.1) and default port (4200). Remember to change these if you run it on an actual server!
+
 #### Run the server!
-Once you have set all of the above up, navigate the main directory and run, 
+Once you have set all of the above up, navigate the main directory and run,
 
 `$ ng serve -o`
 
 which will start the serve and then open it on localhost in your browser.
 
 ### Notes
+-------------
 - This project used an API to access the MYSQL database that stored all user/product information. The current API information is specific to this project so you may have to slightly alter the 'api.service.ts' in 'app/models' to obtain a functional app.
