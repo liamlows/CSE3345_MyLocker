@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
-import { ApiService } from '../api.service';
-import { CustomerService } from '../customer.service';
+import { ApiService } from '../models/api.service';
+import { CustomerService } from '../models/customer.service';
 
 @Component({
   templateUrl: './register.component.html',

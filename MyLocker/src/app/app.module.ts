@@ -9,7 +9,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { ItempageModule } from './itempage/itempage.module';
 import { RegisterModule } from './register/register.module';
 
-import { NeedAuthGuard } from './auth-guard';
+import { NeedAuthGuard } from './models/auth-guard';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';

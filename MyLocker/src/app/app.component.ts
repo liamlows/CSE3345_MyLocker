@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { slideInAnimation } from './animation';
-import { CustomerService } from './customer.service';
-import { NeedAuthGuard } from './auth-guard';
+import { slideInAnimation } from './models/animation';
+import { CustomerService } from './models/customer.service';
+import { NeedAuthGuard } from './models/auth-guard';
 
 @Component({
   selector: 'app-root',

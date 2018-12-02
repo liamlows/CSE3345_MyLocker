@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NeedAuthGuard } from '../auth-guard';
+import { NeedAuthGuard } from '../models/auth-guard';
 import { trigger, transition, style, animate } from '../../../node_modules/@angular/animations';
-import { CustomerService } from '../customer.service';
+import { CustomerService } from '../models/customer.service';
 import { Router } from '../../../node_modules/@angular/router';
 
 @Component({

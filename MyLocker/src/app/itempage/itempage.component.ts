@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models';
-import { ApiService } from '../api.service';
-import { CustomerService } from '../customer.service';
-import { NeedAuthGuard } from '../auth-guard'
+import { ApiService } from '../models/api.service';
+import { CustomerService } from '../models/customer.service';
+import { NeedAuthGuard } from '../models/auth-guard'
 
 @Component({
   templateUrl: './itempage.component.html',

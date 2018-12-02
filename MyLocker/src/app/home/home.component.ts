@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, } from "@angular/core";
 import {  trigger, state, style, transition, animate, keyframes } from '@angular/animations'
 import { Router } from "../../../node_modules/@angular/router";
-import { NeedAuthGuard } from "../auth-guard";
+import { NeedAuthGuard } from "../models/auth-guard";
 
 @Component({
   templateUrl: './home.component.html',

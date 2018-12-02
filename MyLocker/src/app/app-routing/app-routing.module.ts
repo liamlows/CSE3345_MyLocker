@@ -1,7 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NeedAuthGuard } from '../auth-guard';
+import { NeedAuthGuard } from '../models/auth-guard';
 
 import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';

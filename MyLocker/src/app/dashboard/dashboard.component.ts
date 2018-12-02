@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
-import { CustomerService } from '../customer.service';
+import { ApiService } from '../models/api.service';
+import { CustomerService } from '../models/customer.service';
 import { Router } from '@angular/router';
-import { NeedAuthGuard } from '../auth-guard';
+import { NeedAuthGuard } from '../models/auth-guard';
 
 @Component({
   templateUrl: './dashboard.component.html',
@@ -59,6 +59,8 @@ export class DashboardComponent implements OnInit {
       this.api.deleteAccountById(this.customer.getId()).subscribe(
         () => {
           window.alert("Account Deleted!");
+          this.customer.removeUser();
+          this.authGuard.authIsLogged = false;
           this.router.navigateByUrl('/home');
         }
       );
