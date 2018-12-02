@@ -34,7 +34,7 @@ In your angular.json file...
             ]   
 
 #### package.json
-Please note that currently the application runs off of the localhost IP (127.0.0.1) and default port (4200). Remember to change these if you run it on an actual server!
+Please note that currently the application runs off of the localhost IP (127.0.0.1) and default port (4200). Remember to change these in your package.json file if you run it on an actual server!
 
 #### Run the server!
 Once you have set all of the above up, navigate the main directory and run,
