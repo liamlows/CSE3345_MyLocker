@@ -4,7 +4,6 @@ import { ApiService } from '../api.service';
 import { CustomerService } from '../customer.service';
 
 @Component({
-  selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

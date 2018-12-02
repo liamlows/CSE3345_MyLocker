@@ -10,7 +10,6 @@ import { ItemPipe } from './filters/item.pipe';
 import { GenderPipe } from './filters/gender.pipe';
 import { SearchPipe } from './filters/search.pipe';
 import { BrandPipe } from './filters/brand.pipe';
-//import { SliderPipe } from './filters/slider/slider.pipe';
 import { PricePipe } from './filters/price.pipe';
 
 @NgModule({

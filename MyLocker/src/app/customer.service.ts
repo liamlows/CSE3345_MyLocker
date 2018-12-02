@@ -12,10 +12,6 @@ const EMAIL = 'EMAIL';
 })
 export class CustomerService {
 
-  // setToken(token: string): void {
-  //   localStorage.setItem(TOKEN, token);
-  // }
-
   setUser(id: string, fname: string, lname: string, email: string):void{
     localStorage.setItem(TOKEN, '1');
     localStorage.setItem(ID, id);

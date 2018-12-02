@@ -7,16 +7,13 @@ import { NeedAuthGuard } from './auth-guard';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
   animations: [ slideInAnimation ]
 })
 export class AppComponent {
 
-  constructor( private route: ActivatedRoute, private authGuard: NeedAuthGuard, private customer: CustomerService ) { }
-
   animationState: number;
 
-
+  constructor( private route: ActivatedRoute, private authGuard: NeedAuthGuard, private customer: CustomerService ) { }
 
   onActivate($event) {
     this.animationState = this.route.firstChild.snapshot.data['routeIdx'];

@@ -33,8 +33,8 @@ export class ApiService {
 
 //+++++++++++++++++++  PRODUCT FETCH CONTROLS  +++++++++++++++++++++++
 
-  setProductRating(user_id:string, prod_id:number, rating:number): Observable<Product>{
-    return this.http.post<Product>(
+  setProductRating(user_id:string, prod_id:number, rating:number): Observable<Rating>{
+    return this.http.post(
       `${this.endPoint}/rating`, {user_id, prod_id, rating}
     );
   }
@@ -87,7 +87,7 @@ export class ApiService {
     );
   }
 
-  //!!!! NOPE !!!!
+  //GOOD
   deleteAccountById(id:string):Observable<{}>{
     return this.http.delete(
       `${this.endPoint}/users/delete/${id}`

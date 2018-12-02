@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 4rem;
+  height: 6.5vh;
   z-index: 999;
 }
 
@@ -25,7 +25,7 @@
 
 #nav-button{
   position: absolute;
-  margin-left: 5rem;
+  margin-left: 4.9vw;
   z-index: 999;
 }
 
@@ -54,8 +54,8 @@
 }
 
 #login-account{
-right:9vw;
-position: absolute;
+  right:9vw;
+  position: absolute;
 }
 
 #login-login{
@@ -73,15 +73,6 @@ position: absolute;
   font-size: 2rem;
   color: #dc3545!important;
   cursor: pointer;
-}
-
-#collapseNav{
-  position: fixed;
-  height: 100vh;
-  width: 15vw;
-  z-index: 995;
-  top: 0;
-  left: 0;
 }
 
 #collapseFav{
@@ -111,11 +102,14 @@ position: absolute;
   overflow: scroll;
 }
 
-#navFooter{
-  position: fixed;
-  bottom: 10px;
-  border-top: solid #ddd;
-  width: 13.5vw;
+#size-button{
+  position: absolute;
+  margin-left: 11vw;
+}
+
+#sizeImg{
+  max-width:100%;
+  max-height:100%;
 }
 
 .paddingDiv:focus {

@@ -15,14 +15,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { CollapseComponent } from './collapse/collapse.component';
 import { BrowserAnimationsModule } from '../../node_modules/@angular/platform-browser/animations';
-import { FavoritesComponent } from './models/favorites/favorites.component';
-import { RatingComponent } from './itempage/rating/rating.component';
-
-//// TODO:
-//global error handler
-
-
-
+import { FavoritesComponent } from './collapse/favorites/favorites.component';
 
 @NgModule({
   imports: [
@@ -40,8 +33,7 @@ import { RatingComponent } from './itempage/rating/rating.component';
   declarations: [
     AppComponent,
     CollapseComponent,
-    FavoritesComponent,
-    // RatingComponent
+    FavoritesComponent
   ],
   providers: [
     NeedAuthGuard

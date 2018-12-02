@@ -7,12 +7,12 @@ import { filter } from 'rxjs/operators';
   name: 'filterByItem'
 })
 export class ItemPipe implements PipeTransform {
- transform(items: Product[], filterByItem: string): Product[] {
-      if (!items) { return []; }
-      if (!filterByItem) { return items; }
-  filterByItem = filterByItem.toLocaleLowerCase();
-  return items.filter( it => {
-        return it.style.toString().toLocaleLowerCase().includes(filterByItem);
-      });
-     }
+  transform(items: Product[], filterByItem: string): Product[] {
+    if (!items) { return []; }
+    if (!filterByItem) { return items; }
+    filterByItem = filterByItem.toLocaleLowerCase();
+    return items.filter( it => {
+      return it.style.toString().toLocaleLowerCase().includes(filterByItem);
+    });
+  }
 }

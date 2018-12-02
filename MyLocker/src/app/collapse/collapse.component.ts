@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NeedAuthGuard } from '../auth-guard';
-import { trigger, transition, style, animate, state } from '../../../node_modules/@angular/animations';
+import { trigger, transition, style, animate } from '../../../node_modules/@angular/animations';
 import { CustomerService } from '../customer.service';
-import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
-import { FavoritesComponent } from '../models/favorites/favorites.component';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'ngbd-collapse-component',
@@ -29,7 +28,6 @@ export class CollapseComponent implements OnInit {
   constructor(
     private authGuard: NeedAuthGuard,
     private customer: CustomerService,
-    private activeRoute: ActivatedRoute,
     private router: Router
   ) { }
 

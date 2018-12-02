@@ -1,81 +1,13 @@
-.card-title{
-  text-align: center;
-}
-
-.row .card{
-  margin: 10pt;
-}
-
-.card-text{
-  text-transform: capitalize;
-  text-align: justify;
-  font-size:small;
-}
-
-.btn{
-  font-size: small;
-}
-
-.text-muted{
-  font-weight: bold;
-}
-
-.fa{
-  border-right: 10px;
-}
-
-.title{
-  font-size: small;
-}
-
-.button span {
-  transition: all ease 0.4s;
-  outline:none;
-}
-
-.button:focus {
-  background-color: transparent;
-  outline:none;
-}
-
-.button:focus .fa,
-.button:focus span {
-  color: #8a8a8a;
-  outline:none;
-
-}
-
-.wrapper {
-  display: flex;
-  align-items: stretch;
-}
-
-.sidebar {
-  position: sticky;
-  margin: 10pt;
-}
-
 #filters{
   position: fixed;
   left: 0;
-  height: 100vh;
+  height:93.5vh;
   width: 15vw;
-  border-top: solid 1px #8a8a8a;
-  border-right: solid 1px #8a8a8a;
-  border-radius: .75rem;
+  overflow: scroll;
 }
 
 #products{
   padding-left: 15vw !important;
-}
-
-.filterStyle{
-  height: 12vh;
-  overflow: scroll;
-}
-.filterStyle:hover{
-  height: 21vh;
-  overflow: scroll;
 }
 
 #priceFilter{
@@ -94,18 +26,15 @@
   top:.5rem;
 }
 
-#add-fav-x{
-  font-size: 2rem;
+#add-fav:hover{
+  position: absolute;
+  right:.5rem;
+  top:.5rem;
+  color: #dc3545!important;
   cursor: pointer;
 }
 
-#imgPop{
-  position: fixed;
-  bottom: 1rem;
-  left: 5vw;
-}
-
-#sizeImg{
-  max-width:100%;
-  max-height:100%;
+#add-fav-x{
+  font-size: 2rem;
+  cursor: pointer;
 }

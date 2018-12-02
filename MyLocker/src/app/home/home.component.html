@@ -11,9 +11,18 @@
     <h3 class="text-white">
       Head on over to the "Products" page to take a look at our available products.
     </h3>
+    <button type="button" class="btn btn-white text-info my-1" routerLink="/itempage">
+      Products
+    </button>
     <br>
-    <h3 class="text-white">
-      In addition, feel free to create a free account to get access to special features.
-    </h3>
+    <div class="" *ngIf="!this.authGuard.authIsLogged">
+      <h3 class="text-white" >
+        In addition, feel free to create a free account to get access to special features.
+      </h3>
+      <button type="button" class="btn btn-white text-info my-1" routerLink="/register">
+        Register
+      </button>
+    </div>
+
   </div>
 </div>
