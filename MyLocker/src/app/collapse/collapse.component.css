@@ -9,6 +9,8 @@
 #page-header{
   padding-top: .5rem;
   cursor: pointer;
+  position: absolute;
+  left: 45vw;
 }
 
 #nav-header{
@@ -23,15 +25,12 @@
   border-bottom: solid #ddd;
 }
 
-#nav-button{
-  position: absolute;
-  margin-left: 4.9vw;
-  z-index: 999;
+#prod-button{
+  margin-left: 1%;
 }
 
 #home-button{
-  position: absolute;
-  z-index: 999;
+
 }
 
 #fav-button{
@@ -103,8 +102,7 @@
 }
 
 #size-button{
-  position: absolute;
-  margin-left: 11vw;
+  margin-left: 1%;
 }
 
 #sizeImg{
